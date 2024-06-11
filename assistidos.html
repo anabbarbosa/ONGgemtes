@@ -1,3 +1,8 @@
+<?php
+include("protect.php");
+protect();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,10 +26,10 @@
         <ul class="dropdown-menu text-small shadow">
           <li><a class="dropdown-item" href="./telaInicial.php">Home</a></li>
           <li><a class="dropdown-item" href="./assistidos.html">Assistidos</a></li>
-          <li><a class="dropdown-item" href="#">Cadastrar Assistido</a></li>
+          <li><a class="dropdown-item" href="./cadastrarAssistido.html">Cadastrar Assistido</a></li>
           <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">Avaliação</a></li>
-          <li><a class="dropdown-item" href="#">Consultas</a></li>
+          <li><a class="dropdown-item" href="./avaliacao.html">Avaliação</a></li>
+          <li><a class="dropdown-item" href="./consultas.html">Consultas</a></li>
         </ul>
       </div>
 
@@ -40,7 +45,7 @@
             </svg>
           </a>
           <ul class="dropdown-menu text-small shadow">
-            <li><a class="dropdown-item" href="#">Sobre</a></li>
+            <li><a class="dropdown-item" href="./perfilUsuario.html">Sobre</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Sair</a></li>
           </ul>
@@ -61,56 +66,57 @@
         </svg>
       </button>
     </div>
-
     <div class="container px-4 py-5" id="featured-3">
-      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-        <div class="feature col">
-          <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-            <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"></use></svg>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card bordaAzulGemtes" style="width: 18rem;">
+            <img src="./Imagens/crianca1.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Assistido 1</h5>
+              <p class="card-text">
+                <ol>
+                  <li>Nome:</li>
+                  <li>Idade:</li>
+                  <li>ID:</li>
+                </ol>
+              </p>
+              <a href="./paginaAssistido.html" class="btn btn-primary stretched-link azulGemtes bordaAzulGemtes">Ver Mais</a>
+            </div>
           </div>
-          <h3 class="fs-2 text-body-emphasis">Assistido 1</h3>
-          <p> <ol>
-            <li>Nome:</li>
-            <li>Idade:</li>
-            <li>ID:</li>
-            </ol>
-          </p>
-          <a href="#" class="icon-link">
-            Ver mais
-            <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-          </a>
         </div>
-        <div class="feature col">
-          <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-            <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"></use></svg>
+        <div class="col">
+          <div class="card bordaAzulGemtes" style="width: 18rem;">
+            <img src="./Imagens/crianca2.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Assistido 2</h5>
+              <p class="card-text">
+                <ol>
+                  <li>Nome:</li>
+                  <li>Idade:</li>
+                  <li>ID:</li>
+                </ol>
+              </p>
+              <a href="./paginaAssistido.html" class="btn btn-primary stretched-link azulGemtes bordaAzulGemtes">Ver Mais</a>
+            </div>
           </div>
-          <h3 class="fs-2 text-body-emphasis">Assistido 2</h3>
-          <p><ol>
-              <li>Nome:</li>
-              <li>Idade:</li>
-              <li>ID:</li>
-              </ol></p>
-          <a href="#" class="icon-link">
-            Ver mais
-            <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-          </a>
         </div>
-        <div class="feature col">
-          <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-            <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
+        <div class="col">
+          <div class="card bordaAzulGemtes" style="width: 18rem;">
+            <img src="./Imagens/crianca3.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Assistido 3</h5>
+              <p class="card-text">
+                <ol>
+                  <li>Nome:</li>
+                  <li>Idade:</li>
+                  <li>ID:</li>
+                </ol>
+              </p>
+              <a href="./paginaAssistido.html" class="btn btn-primary stretched-link azulGemtes bordaAzulGemtes">Ver Mais</a>
+            </div>
           </div>
-          <h3 class="fs-2 text-body-emphasis">Assistido 3</h3>
-          <p><ol>
-              <li>Nome:</li>
-              <li>Idade:</li>
-              <li>ID:</li>
-              </ol></p>
-          <a href="#" class="icon-link">
-            Ver Mais
-            <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-          </a>
         </div>
       </div>
-    </div>
+    </div>    
 </body>
 </html>
