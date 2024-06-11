@@ -1,0 +1,42 @@
+/* a b c d e f g h i j k l m n o p q r s t u v w x y z  */
+:root{
+    --cinza: #E1E1E1;
+    --preto: #000000;
+    --branco: #ffffff;
+}
+a {
+    text-decoration: none!important;
+}
+
+.copy-img {
+    position: absolute;
+    width: 4%; /* Definir largura desejada */
+    height: auto; /* Definir altura desejada */
+    cursor: pointer;
+}
+
+.FundoCinza{
+    background-color: var(--cinza);
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    width: 100%; 
+    height: 100vh; 
+}
+
+.azulGemtes {
+    background-color: #10A1DF!important;
+}
+
+.bordaAzulGemtes{
+    border: 0.5px solid #10A1DF!important;
+    border-radius: 5px;
+}
+
+.fundoAssistidos {
+  background-image: url('#');
+  background-size: cover; /* Para cobrir toda a área da div */
+  background-position: center; /* Para centralizar a imagem */
+  color: white; /* Cor do texto */
+  padding: 20px; /* Espaçamento interno */
+}
