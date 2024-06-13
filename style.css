@@ -24,7 +24,8 @@ a {
   height: 100vh;
 }
 
-.azulGemtes {
+.azulGemtes,
+input[type="checkbox"]:checked {
   background-color: #10a1df !important;
 }
 
@@ -32,9 +33,10 @@ a {
   color: #10a1df !important;
 }
 
-.bordaAzulGemtes {
+.bordaAzulGemtes,
+input[type="checkbox"] {
   border: 0.5px solid #10a1df !important;
-  border-radius: 7px;
+  border-radius: 6px;
 }
 
 .fundoAssistidos {
