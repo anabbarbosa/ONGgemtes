@@ -68,7 +68,7 @@
           <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold azulGemtes bordaAzulGemtes">
             <a class="link-body-emphasis text-decoration-none" href="./assistidos.php">Ver assistidos</a>
           </button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Avaliação</button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4"> <a href="./avaliacao.php">Avaliação</a></button>
         </div>
       </div>
       <div class="col-lg-4 offset-lg-1 p-0 mx-0 overflow-hidden imagemTelaInicial">
