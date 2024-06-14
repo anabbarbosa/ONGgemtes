@@ -39,7 +39,7 @@ CREATE TABLE `cadastro_do_assistido` (
   `Encaminhamento` varchar(200) NOT NULL,
   `id` int(11) NOT NULL,
   `Nome_Responsavel` varchar(50) NOT NULL,
-  `CPF` int(11) NOT NULL,
+  `CPF` varchar(11) NOT NULL,
   `Telefone` varchar(15) NOT NULL,
   `Grau_Parentesco` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

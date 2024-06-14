@@ -31,8 +31,8 @@
           <li>
             <hr class="dropdown-divider">
           </li>
-          <li><a class="dropdown-item" href="./avaliacao.html">Avaliação</a></li>
-          <li><a class="dropdown-item" href="./consultas.html">Consultas</a></li>
+          <li><a class="dropdown-item" href="./avaliacao.php">Avaliação</a></li>
+          <li><a class="dropdown-item" href="./consultas.php">Consultas</a></li>
         </ul>
       </div>
 
@@ -109,7 +109,7 @@
     </table>
 
     <div class="col-12">
-      <button type="submit" class="btn btn-primary azulGemtes bordaAzulGemtes"> <a href="./novaAvaliação.html" style="color:white;"> Registrar nova avaliação</a></button>
+      <button type="submit" class="btn btn-primary azulGemtes bordaAzulGemtes"> <a href="./novaAvaliação.php" style="color:white;"> Registrar nova avaliação</a></button>
     </div>
   </div>
 

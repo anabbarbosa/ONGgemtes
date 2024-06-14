@@ -171,7 +171,7 @@
         </div>
         <div class="col-md-6">
           <label for="inputCPF" class="form-label">CPF (Somente números)*</label>
-          <input type="number" class="form-control" id="inputCPF" name="CPF" maxlength="11" value="" required/>
+          <input type="text" class="form-control" id="inputCPF" name="CPF" maxlength="11" value="" required/>
         </div>
         <div class="col-2">
           <button type="submit" class="btn btn-primary azulGemtes bordaAzulGemtes">
