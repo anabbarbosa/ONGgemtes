@@ -1,7 +1,11 @@
 <?php
   include("protect.php");
   protect();
+
   $conexao = mysqli_connect("localhost", "root", "", "assistido");
+  if (!$conexao) {
+    die("Conexão falhou: " . mysqli_connect_error());
+}
   $cadastro_do_assistido = mysqli_query($conexao, "SELECT * FROM cadastro_do_assistido");
 ?>
 
@@ -69,9 +73,9 @@
       </button>
     </div>
       <?php
-        $counter = 1;
         echo '<div class="container px-4 py-5" id="featured-3">';
         echo '<div class="row row-cols-1 row-cols-md-3 g-4">';
+        $counter = 1;
         while ($linha = mysqli_fetch_array($cadastro_do_assistido)) {
       ?>
           <div class="col">
@@ -81,12 +85,12 @@
                 <p class="card-text">
                   <ol>
                     <li>Nome: <?php echo $linha["Nome_Completo"]; ?></li>
-                    <li>Idade: <?php  $Data_Nascimento = new DateTime($linha["Data_Nascimento"]); $dataAtual = new DateTime(); $intervalo = $dataAtual->diff($Data_Nascimento); $idade = $intervalo->y; echo $idade;  ?></li>
+                    <li>Idade: <?php $data_nascimento = DateTime::createFromFormat('Y-m-d', $linha["Data_Nascimento"]); if ($data_nascimento === false) {echo "Data de Nascimento inválida."; exit;} $dataAtual = new DateTime;  $intervalo = $dataAtual->diff($data_nascimento); $idade = $intervalo->y; echo $idade;?></li>
                     <li>ID: <?php echo $linha["id"]; ?> </li>
                   </ol>
                 </p>
                 <div class="text-center">
-                  <a href="./paginaAssistido.html" class="btn btn-primary stretched-link azulGemtes bordaAzulGemtes">Ver Mais</a>
+                  <a href="./paginaAssistido.php?id=<?php echo $linha["id"]; ?>" class="btn btn-primary stretched-link azulGemtes bordaAzulGemtes">Ver Mais</a>
                 </div>
               </div>
             </div>
