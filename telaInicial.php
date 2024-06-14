@@ -30,8 +30,8 @@
         </a>
         <ul class="dropdown-menu text-small shadow">
           <li><a class="dropdown-item" href="./telaInicial.php">Home</a></li>
-          <li><a class="dropdown-item" href="./assistidos.html">Assistidos</a></li>
-          <li><a class="dropdown-item" href="./cadastrarAssistido.html">Cadastrar Assistido</a></li>
+          <li><a class="dropdown-item" href="./assistidos.php">Assistidos</a></li>
+          <li><a class="dropdown-item" href="./cadastrarAssistido.php">Cadastrar Assistido</a></li>
           <li><hr class="dropdown-divider"></li>
           <li><a class="dropdown-item" href="./avaliacao.html">Avaliação</a></li>
           <li><a class="dropdown-item" href="./consultas.html">Consultas</a></li>
@@ -66,7 +66,7 @@
         <p class="lead">Algum texto muito massa vai ser colocado aqui depois</p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
           <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold azulGemtes bordaAzulGemtes">
-            <a class="link-body-emphasis text-decoration-none" href="./assistidos.html">Ver assistidos</a>
+            <a class="link-body-emphasis text-decoration-none" href="./assistidos.php">Ver assistidos</a>
           </button>
           <button type="button" class="btn btn-outline-secondary btn-lg px-4">Avaliação</button>
         </div>
