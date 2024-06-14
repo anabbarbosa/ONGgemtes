@@ -23,18 +23,18 @@
 
 
   <header class="py-3 mb-3 border-bottom headerTelaInicial">
-    <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
+    <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr">
       <div class="dropdown">
         <a href="#" class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
           <img class="bi me-2" height="32" src="./Imagens/logoGemtes.png">
         </a>
         <ul class="dropdown-menu text-small shadow">
           <li><a class="dropdown-item" href="./telaInicial.php">Home</a></li>
-          <li><a class="dropdown-item" href="./assistidos.html">Assistidos</a></li>
-          <li><a class="dropdown-item" href="#">Cadastrar Assistido</a></li>
+          <li><a class="dropdown-item" href="./assistidos.php">Assistidos</a></li>
+          <li><a class="dropdown-item" href="./cadastrarAssistido.php">Cadastrar Assistido</a></li>
           <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">Avaliação</a></li>
-          <li><a class="dropdown-item" href="#">Consultas</a></li>
+          <li><a class="dropdown-item" href="./avaliacao.html">Avaliação</a></li>
+          <li><a class="dropdown-item" href="./consultas.html">Consultas</a></li>
         </ul>
       </div>
 
@@ -50,9 +50,9 @@
             </svg>
           </a>
           <ul class="dropdown-menu text-small shadow">
-            <li><a class="dropdown-item" href="#">Sobre</a></li>
+            <li><a class="dropdown-item" href="./perfilUsuario.html">Sobre</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Sair</a></li>
+            <li><a class="dropdown-item" href="./sair.php">Sair</a></li>
           </ul>
         </div>
       </div>
@@ -66,7 +66,7 @@
         <p class="lead">Algum texto muito massa vai ser colocado aqui depois</p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
           <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold azulGemtes bordaAzulGemtes">
-            <a class="link-body-emphasis text-decoration-none" href="./assistidos.html">Ver assistidos</a>
+            <a class="link-body-emphasis text-decoration-none" href="./assistidos.php">Ver assistidos</a>
           </button>
           <button type="button" class="btn btn-outline-secondary btn-lg px-4">Avaliação</button>
         </div>
@@ -79,3 +79,6 @@
 
 </body>
 </html>
+
+
+

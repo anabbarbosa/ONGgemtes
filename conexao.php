@@ -12,3 +12,5 @@
    echo "Falha ao conectar: (" . $mysql->connect_errno . ") " . $mysql->connect_error;
  }
   ?>
+
+  
