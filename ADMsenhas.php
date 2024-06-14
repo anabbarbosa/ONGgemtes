@@ -65,36 +65,38 @@ $mysqli->close();
 
   <div id="toast">Conteúdo copiado!</div>
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Recuperar senha</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="ADMtelaInicial.php">Tela inicial</a>
-        </div>
-      </div>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="addUsers.php">Adicionar usuário</a>
-        </div>
-      </div>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="deleteUsers.php">Excluir usuário</a>
-        </div>
-      </div>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="sair.php">Sair</a>
-        </div>
+  <header class="py-3 mb-3 border-bottom headerTelaInicial">
+  <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr">
+    <div class="dropdown">
+      <a href="#" class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <img class="bi me-2" height="32" src="./Imagens/logoGemtes.png">
+      </a>
+      <ul class="dropdown-menu text-small shadow">
+        <li><a class="dropdown-item" href="./ADMtelaInicial.php">Home</a></li>
+        <li><a class="dropdown-item" href="./ADMsenhas.php">Recuperar Senha</a></li>
+        <li><a class="dropdown-item" href="./addUsers.php">Cadastrar Usuário</a></li>
+        <li><a class="dropdown-item" href="./deleteUsers.php">Excluir Usuário</a></li>
+
+    <div class="d-flex align-items-center">
+      <form class="w-100 me-3" role="search">
+        <input type="search" class="form-control bordaAzulGemtes" placeholder="Procurar usuário..." aria-label="Search">
+      </form>
+
+      <div class="flex-shrink-0 dropdown">
+        <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" alt="mdo" width="25" height="25" class="rounded-circle bi bi-person" fill="#10A1DF" viewBox="0 0 16 16">
+            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+          </svg>
+        </a>
+        <ul class="dropdown-menu text-small shadow">
+          <li><a class="dropdown-item" href="./sair.php">Sair</a></li>
+        </ul>
       </div>
     </div>
-  </nav>
+  </div>
+</header>
 
-  <div class="card text-center mt-4 shadow p-3 mb-5 bg-body-tertiary rounded-3" style="background-color: #E1E1E1; color:black; border-color:#10A1DF;">
+  <div class="card text-center mt-4 shadow p-3 mb-5 bg-body-tertiary rounded-3 container" style="background-color: #E1E1E1; color:black; border-color:#10A1DF;">
     <div class="card-body">
       <h5 class="card-title">Código para recuperação de senha</h5>
       <p class="card-text">Insira o CPF do usuário para que possamos enviar o código de recuperação de senha.</p> <br> <br>
