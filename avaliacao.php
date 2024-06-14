@@ -1,6 +1,6 @@
 <?php
-include("protect.php");
-protect();
+  include("protect.php");
+  protect();
 ?>
 
 <!DOCTYPE html>

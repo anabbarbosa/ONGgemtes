@@ -36,7 +36,7 @@ CREATE TABLE `cadastro_do_assistido` (
   `Nome_Completo` varchar(50) NOT NULL,
   `Idade_Cog` int(2) NOT NULL,
   `Data_Nascimento` date NOT NULL,
-  `Encaminhamento` int(200) NOT NULL,
+  `Encaminhamento` varchar(200) NOT NULL,
   `id` int(11) NOT NULL,
   `Nome_Responsavel` varchar(50) NOT NULL,
   `CPF` int(11) NOT NULL,
