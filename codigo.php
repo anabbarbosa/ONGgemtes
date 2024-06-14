@@ -9,3 +9,5 @@ function palavra_aleatoria($string) {
      return $palavra_aleatoria;
  }
  ?>
+
+ 
