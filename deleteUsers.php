@@ -77,39 +77,66 @@
   }
   ?>
   
-<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Excluir usuário</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="ADMtelaInicial.php">Tela inicial</a>
-        </div>
-      </div>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="addUsers.php">Adicionar usuário</a>
-        </div>
-      </div> 
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="ADMsenhas.php">Recuperação de senha</a>
-        </div>
-      </div>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="sair.php">Sair</a>
-        </div>
+  <header class="py-3 mb-3 border-bottom headerTelaInicial">
+  <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr">
+    <div class="dropdown">
+      <a href="#" class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <img class="bi me-2" height="32" src="./Imagens/logoGemtes.png">
+      </a>
+      <ul class="dropdown-menu text-small shadow">
+        <li><a class="dropdown-item" href="./ADMtelaInicial.php">Home</a></li>
+        <li><a class="dropdown-item" href="./ADMsenhas.php">Recuperar Senha</a></li>
+        <li><a class="dropdown-item" href="./addUsers.php">Cadastrar Usuário</a></li>
+        <li><a class="dropdown-item" href="./deleteUsers.php">Excluir Usuário</a></li>
+
+    <div class="d-flex align-items-center">
+      <form class="w-100 me-3" role="search">
+        <input type="search" class="form-control bordaAzulGemtes" placeholder="Procurar usuário..." aria-label="Search">
+      </form>
+
+      <div class="flex-shrink-0 dropdown">
+        <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" alt="mdo" width="25" height="25" class="rounded-circle bi bi-person" fill="#10A1DF" viewBox="0 0 16 16">
+            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+          </svg>
+        </a>
+        <ul class="dropdown-menu text-small shadow">
+          <li><a class="dropdown-item" href="./sair.php">Sair</a></li>
+        </ul>
       </div>
     </div>
-  </nav>
+  </div>
+</header>
 
-  <form method="POST" action="">
-    <p> CPF <br> <input value="" name="CPF" type="number"></p>
-    <p><input name="deletar" value="deletar" type="submit"></p>
-  </form>
+<div class="container">
+    <form method="POST" class="row g-3" action="">
+      <div class="col-md-12">
+        <label for="inputName" class="form-label">Nome Completo</label>
+        <input type="text" class="form-control" id="inputName" name="Nome_Completo" maxlength="50" value="" required />
+      </div>
+      <div class="col-md-12">
+        <label for="inputCPF" class="form-label">CPF</label>
+        <input type="number" class="form-control" id="inputCPF" name=CPF" value="" min="1990-01-01" required />
+      </div>
+      <div class="col-md-12">
+        <label for="inputCRP" class="form-label">CRP</label>
+        <input type="number" class="form-control" id="inputCRP" name="CRP" maxlength="2" value="" />
+      </div>
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary m-2" style="background-color:   #10A1DF; color: white; border:none;">Remover Usuário</button>
+      </div>
+
+      <div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="d-flex">
+    <div class="toast-body">
+      Usuário removido com sucesso!
+    </div>
+    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+</div>
+    </form>
+  </div>
 
 </body>
 </html>
