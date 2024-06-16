@@ -31,8 +31,8 @@ protect();
           <li>
             <hr class="dropdown-divider">
           </li>
-          <li><a class="dropdown-item" href="./avaliacao.html">Avaliação</a></li>
-          <li><a class="dropdown-item" href="./consultas.html">Consultas</a></li>
+          <li><a class="dropdown-item" href="./avaliacao.php">Avaliação</a></li>
+          <li><a class="dropdown-item" href="./consultas.php">Consultas</a></li>
         </ul>
       </div>
 
@@ -48,7 +48,7 @@ protect();
             </svg>
           </a>
           <ul class="dropdown-menu text-small shadow">
-            <li><a class="dropdown-item" href="./perfilUsuario.html">Sobre</a></li>
+            <li><a class="dropdown-item" href="./perfilUsuario.php">Sobre</a></li>
             <li>
               <hr class="dropdown-divider">
             </li>
@@ -63,13 +63,13 @@ protect();
     <section class="capacidade">
       <form class="row g-3">
         <div class="col-12">
-          <h2 class="textoAzulGemtes">Matemática</h2>
+          <h2 class="textoAzulGemtes"> Língua Portuguesa</h2>
           <h5 class="textoAzulGemtes">A criança foi capaz de:</h5>
         </div>
 
 
         <div class="col-md-6">
-          <label for="inputState" class="form-label">Manusear conjuntos e posicionar objetos de maneira adequada neles.</label>
+          <label for="inputState" class="form-label">Entender instruções expressas de forma negativa:</label>
           <select id="inputState" class="form-select">
             <option selected>Escolha</option>
             <option>Plenamente Satisfatória</option>
@@ -78,7 +78,7 @@ protect();
           </select>
         </div>
         <div class="col-md-6">
-          <label for="inputState" class="form-label">Reconhecer antecessores e sucessores (vizinhos) dos números até 10.</label>
+          <label for="inputState" class="form-label">Incorporar vocabulário recente em suas conversas:</label>
           <select id="inputState" class="form-select">
             <option selected>Escolha</option>
             <option>Plenamente Satisfatória</option>
@@ -87,8 +87,9 @@ protect();
           </select>
         </div>
 
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Estabelecer correspondências entre elementos de conjuntos diferentes.</label>
+
+        <div class="col-md-8">
+          <label for="inputState" class="form-label">Expressar-se verbalmente, pronunciando palavras de forma clara, espontânea e confiante:</label>
           <select id="inputState" class="form-select">
             <option selected>Escolha</option>
             <option>Plenamente Satisfatória</option>
@@ -96,8 +97,27 @@ protect();
             <option>Necessitará de Intervenções</option>
           </select>
         </div>
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Relacionar números às suas quantidades correspondentes.</label>
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">Familiarizar-se com novas palavras:</label>
+          <select id="inputState" class="form-select">
+            <option selected>Escolha</option>
+            <option>Plenamente Satisfatória</option>
+            <option>Intervenções Pedagógicas</option>
+            <option>Necessitará de Intervenções</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">Formular diversas perguntas:</label>
+          <select id="inputState" class="form-select">
+            <option selected>Escolha</option>
+            <option>Plenamente Satisfatória</option>
+            <option>Intervenções Pedagógicas</option>
+            <option>Necessitará de Intervenções</option>
+          </select>
+        </div>
+        <div class="col-md-8">
+          <label for="inputState" class="form-label">Compreender o significado de texto ou história, identificando a ideia central:</label>
           <select id="inputState" class="form-select">
             <option selected>Escolha</option>
             <option>Plenamente Satisfatória</option>
@@ -107,7 +127,7 @@ protect();
         </div>
 
         <div class="col-md-3">
-          <label for="inputState" class="form-label">Recitar os números até 20.</label>
+          <label for="inputState" class="form-label">Engajar-se em diálogos:</label>
           <select id="inputState" class="form-select">
             <option selected>Escolha</option>
             <option>Plenamente Satisfatória</option>
@@ -116,7 +136,7 @@ protect();
           </select>
         </div>
         <div class="col-md-4">
-          <label for="inputState" class="form-label">Reconhecer a grafia dos números até 10.</label>
+          <label for="inputState" class="form-label">Demonstrar interesse na leitura de histórias:</label>
           <select id="inputState" class="form-select">
             <option selected>Escolha</option>
             <option>Plenamente Satisfatória</option>
@@ -125,7 +145,7 @@ protect();
           </select>
         </div>
         <div class="col-md-5">
-          <label for="inputState" class="form-label">Treinar a grafia dos números até 9.</label>
+          <label for="inputState" class="form-label">Memorizar e entoar canções infantis ou parlendas:</label>
           <select id="inputState" class="form-select">
             <option selected>Escolha</option>
             <option>Plenamente Satisfatória</option>
@@ -133,9 +153,10 @@ protect();
             <option>Necessitará de Intervenções</option>
           </select>
         </div>
+
 
         <div class="col-md-6">
-          <label for="inputState" class="form-label">Selecionar o número específico de objetos quando solicitado (até 4)</label>
+          <label for="inputState" class="form-label">Elaborar e relatar histórias de maneira oral, a partir de imagens ou temas:</label>
           <select id="inputState" class="form-select">
             <option selected>Escolha</option>
             <option>Plenamente Satisfatória</option>
@@ -144,7 +165,7 @@ protect();
           </select>
         </div>
         <div class="col-md-6">
-          <label for="inputState" class="form-label">Realizar sequências lógicas simples (máximo de 3 unidades).</label>
+          <label for="inputState" class="form-label">Relatar eventos de sua vida cotidiana, seguindo a lógica cronológica:</label>
           <select id="inputState" class="form-select">
             <option selected>Escolha</option>
             <option>Plenamente Satisfatória</option>
@@ -154,27 +175,7 @@ protect();
         </div>
 
         <div class="col-md-12">
-          <label for="inputState" class="form-label">Realizar a classificação de objetos e figuras com base em semelhanças e diferenças.</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-
-        <div class="col-md-12">
-          <label for="inputState" class="form-label">Compreender que a ausência de elementos em um conjunto representa zero.</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-
-        <div class="col-md-12">
-          <label for="inputState" class="form-label">Contar objetos individualmente até 9, estabelecendo uma correspondência biunívoca.</label>
+          <label for="inputState" class="form-label"> Atentar, memorizar, assimilar e executar ordens tanto simples quanto complexas</label>
           <select id="inputState" class="form-select">
             <option selected>Escolha</option>
             <option>Plenamente Satisfatória</option>
@@ -185,43 +186,35 @@ protect();
       </form>
     </section>
 
-    <section class="capacidade">
+    <section class="escrita my-3">
       <form class="row g-3">
-        <div class="col-12 py-4">
-          <h3 class="textoAzulGemtes">Desenvolver conceitos fundamentais de matemática nas seguintes áreas.</h3>
+        <div class="col-12">
+          <h5 class="textoAzulGemtes">Escrita:</h5>
         </div>
+
+
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">Realizar escritos de forma espontânea:</label>
+          <select id="inputState" class="form-select">
+            <option selected>Escolha</option>
+            <option>Plenamente Satisfatória</option>
+            <option>Intervenções Pedagógicas</option>
+            <option>Necessitará de Intervenções</option>
+          </select>
+        </div>
+        <div class="col-md-8">
+          <label for="inputState" class="form-label">Reproduzir histórias ouvidas por meio de recontos escritos, com o professor atuando como escriba:</label>
+          <select id="inputState" class="form-select">
+            <option selected>Escolha</option>
+            <option>Plenamente Satisfatória</option>
+            <option>Intervenções Pedagógicas</option>
+            <option>Necessitará de Intervenções</option>
+          </select>
+        </div>
+
+
         <div class="col-md-12">
-          <h5 class="textoAzulGemtes">Quantidade:</h5>
-        </div>
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Mais</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Menos</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Muito</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Pouco</label>
+          <label for="inputState" class="form-label">Formar seu nome utilizando letras móveis, sem depender do crachá:</label>
           <select id="inputState" class="form-select">
             <option selected>Escolha</option>
             <option>Plenamente Satisfatória</option>
@@ -230,10 +223,7 @@ protect();
           </select>
         </div>
         <div class="col-md-12">
-          <h5 class="textoAzulGemtes">Medida:</h5>
-        </div>
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Pequeno</label>
+          <label for="inputState" class="form-label">Compreender o significado de texto ou história, identificando a ideia central:</label>
           <select id="inputState" class="form-select">
             <option selected>Escolha</option>
             <option>Plenamente Satisfatória</option>
@@ -241,61 +231,9 @@ protect();
             <option>Necessitará de Intervenções</option>
           </select>
         </div>
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Grande</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Maior</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Menor</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Grosso</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Fino</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-
         <div class="col-md-12">
-          <h5 class="textoAzulGemtes">Distância:</h5>
-        </div>
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Longe</label>
+          <label for="inputState" class="form-label">
+            Reproduzir seu próprio nome por meio de cópia sem o auxílio de guias pontilhadas:</label>
           <select id="inputState" class="form-select">
             <option selected>Escolha</option>
             <option>Plenamente Satisfatória</option>
@@ -303,21 +241,8 @@ protect();
             <option>Necessitará de Intervenções</option>
           </select>
         </div>
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Perto</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-
         <div class="col-md-12">
-          <h5 class="textoAzulGemtes">Volume:</h5>
-        </div>
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Cheio</label>
+          <label for="inputState" class="form-label">Utilizar diversos instrumentos e materiais de escrita para realizar desenhos, traçar letras e outros símbolos gráficos:</label>
           <select id="inputState" class="form-select">
             <option selected>Escolha</option>
             <option>Plenamente Satisfatória</option>
@@ -325,153 +250,81 @@ protect();
             <option>Necessitará de Intervenções</option>
           </select>
         </div>
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Vazio</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Inteiro</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Metade</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-
-        <div class="col-md-12">
-          <h5 class="textoAzulGemtes">Massa:</h5>
-        </div>
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Leve</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Pesado</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-
-        <div class="col-md-12">
-          <h5 class="textoAzulGemtes">Identificar e nomear algumas formas geométricas, tais como:</h5>
-        </div>
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Círculo</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Triângulo</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Quadrado</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Retângulo</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-
-        <div class="col-md-12">
-          <h5 class="textoAzulGemtes">Demonstrar habilidade em resolver oralmente situações-problema, envolvendo a contagem.</h5>
-        </div>
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Dar</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Dividir</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Receber</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-        <div class="col-md-6">
-          <label for="inputState" class="form-label">Juntar</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-
-        <div class="col-md-12">
-          <label for="inputState" class="form-label">Nomear até 8 cores, incluindo
-            primárias e secundárias.</label>
-          <select id="inputState" class="form-select">
-            <option selected>Escolha</option>
-            <option>Plenamente Satisfatória</option>
-            <option>Intervenções Pedagógicas</option>
-            <option>Necessitará de Intervenções</option>
-          </select>
-        </div>
-
-        <div class="col-12 my-4">
-          <button type="submit" class="btn btn-primary azulGemtes bordaAzulGemtes"><a style="color:white" href="./novaAvaliacao5.html">Próximo</a></button>
-        </div>
-      </form>
     </section>
 
+    <section class="leitura my-3">
+      <form class="row g-4">
+        <div class="col-12">
+          <h5 class="textoAzulGemtes">Leitura:</h5>
+        </div>
+
+        <div class="col-md-12">
+          <label for="inputState" class="form-label">RIdentificar a escrita de seu nome em letras maiúsculas estilo bastão:</label>
+          <select id="inputState" class="form-select">
+            <option selected>Escolha</option>
+            <option>Plenamente Satisfatória</option>
+            <option>Intervenções Pedagógicas</option>
+            <option>Necessitará de Intervenções</option>
+          </select>
+        </div>
+
+        <div class="col-md-12">
+          <label for="inputState" class="form-label">Tentar reconhecer palavras familiares:</label>
+          <select id="inputState" class="form-select">
+            <option selected>Escolha</option>
+            <option>Plenamente Satisfatória</option>
+            <option>Intervenções Pedagógicas</option>
+            <option>Necessitará de Intervenções</option>
+          </select>
+        </div>
+
+        <div class="col-md-12">
+          <label for="inputState" class="form-label">Discriminar semelhanças e diferenças nos sons de aliterações e rimas:</label>
+          <select id="inputState" class="form-select">
+            <option selected>Escolha</option>
+            <option>Plenamente Satisfatória</option>
+            <option>Intervenções Pedagógicas</option>
+            <option>Necessitará de Intervenções</option>
+          </select>
+        </div>
+
+        <div class="col-md-12">
+          <label for="inputState" class="form-label">Estar no estágio de leitura logográfica, reconhecendo logotipos, etiquetas comerciais e anúncios:</label>
+          <select id="inputState" class="form-select">
+            <option selected>Escolha</option>
+            <option>Plenamente Satisfatória</option>
+            <option>Intervenções Pedagógicas</option>
+            <option>Necessitará de Intervenções</option>
+          </select>
+        </div>
+
+        <div class="col-md-12">
+          <label for="inputState" class="form-label">Explorar textos e engajar-se em atividades auditivas para expandir sua familiaridade com variados tipos de textos:</label>
+          <select id="inputState" class="form-select">
+            <option selected>Escolha</option>
+            <option>Plenamente Satisfatória</option>
+            <option>Intervenções Pedagógicas</option>
+            <option>Necessitará de Intervenções</option>
+          </select>
+        </div>
+        <div class="col-md-12">
+          <label for="inputState" class="form-label">
+            Selecionar e folhear livros, buscando orientação por temas e ilustrações:</label>
+          <select id="inputState" class="form-select">
+            <option selected>Escolha</option>
+            <option>Plenamente Satisfatória</option>
+            <option>Intervenções Pedagógicas</option>
+            <option>Necessitará de Intervenções</option>
+          </select>
+        </div>
+    </section>
+
+    <div class="col-12 py-3">
+      <button type="submit" class="btn btn-primary azulGemtes bordaAzulGemtes my-3"><a style="color:white" href="./novaAvaliacao4.html">Próximo</a></button>
+    </div>
+    </form>
   </div>
 
 </body>
+
+</html>

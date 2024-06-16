@@ -31,8 +31,8 @@ protect();
           <li>
             <hr class="dropdown-divider">
           </li>
-          <li><a class="dropdown-item" href="./avaliacao.html">Avaliação</a></li>
-          <li><a class="dropdown-item" href="./consultas.html">Consultas</a></li>
+          <li><a class="dropdown-item" href="./avaliacao.php">Avaliação</a></li>
+          <li><a class="dropdown-item" href="./consultas.php">Consultas</a></li>
         </ul>
       </div>
 
@@ -48,7 +48,7 @@ protect();
             </svg>
           </a>
           <ul class="dropdown-menu text-small shadow">
-            <li><a class="dropdown-item" href="./perfilUsuario.html">Sobre</a></li>
+            <li><a class="dropdown-item" href="./perfilUsuario.php">Sobre</a></li>
             <li>
               <hr class="dropdown-divider">
             </li>
