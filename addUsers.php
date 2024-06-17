@@ -65,7 +65,7 @@
   //     echo '<div class="alert alert-light position-absolute bottom-0 start-50 translate-middle-x" role="alert">' . $msg . "</div>";
   //   }
   // }
-?>
+  ?>
 
   <?php
     if(count($sucesso) > 0){

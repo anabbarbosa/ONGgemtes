@@ -2,7 +2,7 @@
 
 Nome do banco de dados: ONG
 
-Tabela usuarios: ID, CPF, senha
+Tabela terapeuta: ID, CPF, senha
 
 Toda a vez que criar uma página nova escrever o seguinte para verificar a sessão: (na tag php)
 
@@ -29,7 +29,7 @@ include("conexao.php");
     if (!is_numeric($cpf) || strlen($cpf) != 11) {
         $erro[] = "CPF inválido.";
     } else {
-      $stmt = $mysqli->prepare("SELECT senha, ID FROM usuarios WHERE cpf = '$cpf'"); // Preparar a consulta
+      $stmt = $mysqli->prepare("SELECT senha, ID FROM terapeuta WHERE cpf = '$cpf'"); // Preparar a consulta
       if ($stmt === false) {
           die("Erro na preparação: " . $mysqli->error);
       }

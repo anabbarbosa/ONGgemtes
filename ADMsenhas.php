@@ -17,7 +17,7 @@ if(isset($_POST['CPF'])){
     $erro[] = "CPF inválido.";
   } else {
 
-  $stmt = $mysqli->prepare("SELECT * FROM `usuarios` WHERE CPF='$cpf'"); // Preparar a consulta
+  $stmt = $mysqli->prepare("SELECT * FROM `terapeuta` WHERE CPF='$cpf'"); // Preparar a consulta
 
   if ($stmt === false) {
       die("Erro na preparação: " . $mysqli->error);
@@ -27,7 +27,7 @@ if(isset($_POST['CPF'])){
   $result = $stmt->get_result(); //obter resultado
 
   if ($result->num_rows > 0) { 
-    $stmt = $mysqli->prepare("UPDATE `usuarios` SET `codigo`='$codigo' WHERE CPF='$cpf'"); // Preparar a consulta
+    $stmt = $mysqli->prepare("UPDATE `terapeuta` SET `codigo`='$codigo' WHERE CPF='$cpf'"); // Preparar a consulta
     if ($stmt === false) {
       die("Erro na preparação: " . $mysqli->error);
     }

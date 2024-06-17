@@ -13,7 +13,7 @@
 
 
   if($senha1==$senha2){
-    $stmt = $mysqli->prepare("SELECT senha FROM usuarios WHERE ID = '$_SESSION[ID]'"); // Preparar a consulta
+    $stmt = $mysqli->prepare("SELECT senha FROM terapeuta WHERE ID = '$_SESSION[ID]'"); // Preparar a consulta
     if ($stmt === false) {
       die("Erro na preparação: " . $mysqli->error);
     }
@@ -23,7 +23,7 @@
 
     if ($result->num_rows > 0){
       $nova_senha_hash = password_hash($senha1, PASSWORD_DEFAULT);
-      $stmt_update = $mysqli->prepare("UPDATE usuarios SET senha = '$nova_senha_hash' WHERE ID = '$_SESSION[ID]'"); //preparar alteração
+      $stmt_update = $mysqli->prepare("UPDATE terapeuta SET senha = '$nova_senha_hash' WHERE ID = '$_SESSION[ID]'"); //preparar alteração
       if ($stmt_update === false) {
         die("Erro na preparação da atualização: " . $mysqli->error);
       }

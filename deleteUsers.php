@@ -15,7 +15,7 @@
       $mensagem[] = "CPF inválido.";
     } else {
 
-    $stmt = $mysqli->prepare("SELECT * FROM `usuarios` WHERE CPF='$cpf'"); // Preparar a consulta
+    $stmt = $mysqli->prepare("SELECT * FROM `terapeuta` WHERE CPF='$cpf'"); // Preparar a consulta
 
     if ($stmt === false) {
         die("Erro na preparação: " . $mysqli->error);
@@ -27,7 +27,7 @@
     if ($result->num_rows > 0) { 
       $alerta [] = "Tem certeza que deseja excluir esse usuário?";
       if(isset($_POST['prosseguir_btn'])) {
-        $stmt = $mysqli->prepare("DELETE FROM `usuarios` WHERE CPF='$cpf'"); // Preparar a consulta
+        $stmt = $mysqli->prepare("DELETE FROM `terapeuta` WHERE CPF='$cpf'"); // Preparar a consulta
         if ($stmt === false) {
           die("Erro na preparação: " . $mysqli->error);
         }

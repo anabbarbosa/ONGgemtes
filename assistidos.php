@@ -2,11 +2,11 @@
   include("protect.php");
   protect();
 
-  $conexao = mysqli_connect("localhost", "root", "", "assistido");
+  $conexao = mysqli_connect("localhost", "root", "", "ong");
   if (!$conexao) {
     die("Conexão falhou: " . mysqli_connect_error());
 }
-  $cadastro_do_assistido = mysqli_query($conexao, "SELECT * FROM cadastro_do_assistido");
+  $cadastro_do_assistido = mysqli_query($conexao, "SELECT * FROM assistido");
 ?>
 
 <!DOCTYPE html>

@@ -2,7 +2,7 @@
 include("protect.php");
 protect();
 
-$conexao = mysqli_connect("localhost", "root", "", "assistido");
+$conexao = mysqli_connect("localhost", "root", "", "ong");
 if (!$conexao) {die("Conexão falhou: " . mysqli_connect_error());} 
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0; if ($id <= 0) { echo "ID inválido!"; exit;}
 
@@ -17,17 +17,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $Grau_Parentesco = mysqli_real_escape_string($conexao, $_POST['Grau_Parentesco']);
         $CPF = mysqli_real_escape_string($conexao, $_POST['CPF']);
 
-        $update_sql = "UPDATE cadastro_do_assistido SET Nome_Completo='$Nome_Completo', Data_Nascimento='$Data_Nascimento', Idade_Cog='$Idade_Cog', 
+        $update_sql = "UPDATE assistido SET Nome_Completo='$Nome_Completo', Data_Nascimento='$Data_Nascimento', Idade_Cog='$Idade_Cog', 
             Encaminhamento='$Encaminhamento', Nome_Responsavel='$Nome_Responsavel', Telefone='$Telefone', Grau_Parentesco='$Grau_Parentesco', CPF='$CPF' 
             WHERE id=$id";
         if (mysqli_query($conexao, $update_sql)) { echo "Registro atualizado com sucesso!";} else {echo "Erro ao atualizar o registro: " . mysqli_error($conexao);}
         } elseif (isset($_POST['delete'])) {
-        $delete_sql = "DELETE FROM cadastro_do_assistido WHERE id=$id";
+        $delete_sql = "DELETE FROM assistido WHERE id=$id";
         if (mysqli_query($conexao, $delete_sql)) {echo "Registro removido com sucesso!"; header("Location: assistidos.php"); exit;
         } else { echo "Erro ao remover o registro: " . mysqli_error($conexao); }
     }
   }
-  $sql = "SELECT * FROM cadastro_do_assistido WHERE id=$id";
+  $sql = "SELECT * FROM assistido WHERE id=$id";
   $tabela = mysqli_query($conexao, $sql);
   $linha = mysqli_fetch_array($tabela);
   if (!$linha) {  echo "Item não encontrado!"; exit;
