@@ -26,28 +26,38 @@ include("conexao.php");
     $cpf = $_POST['CPF'];
     $senha = $_POST['senha'];
 
-    if (!is_numeric($cpf) || strlen($cpf) != 11) {
-        $erro[] = "CPF inválido.";
-    } else {
+    if (!is_numeric($cpf) || strlen($cpf) != 11) 
+      $erro[] = "CPF inválido.";
+    else 
+    {
       $stmt = $mysqli->prepare("SELECT senha, id_terapeuta FROM terapeuta WHERE cpf = '$cpf'"); // Preparar a consulta
-      if ($stmt === false) {
+      
+      if ($stmt === false) 
           die("Erro na preparação: " . $mysqli->error);
-      }
 
       $stmt->execute(); //executar consulta
       $result = $stmt->get_result(); //obter resultado
 
-      if ($result->num_rows > 0) { 
+      if ($result->num_rows > 0) 
+      { 
         $row = $result->fetch_assoc(); //obter os dados do usuario
-        if(password_verify($senha, $row['senha'])){
+        if(password_verify($senha, $row['senha']))
+        {
           $_SESSION['ID'] = $row['id_terapeuta']; //toda a vez que vamos verificar se o usuário está logado, utilizar o ID
-          echo "<script>alert('Login efetuado com sucesso'); location.href = './telaInicial.php';</script>";
-        } else{
+          
+          $caminho = "./telaInicial.php";
+
+          if($row['id_terapeuta'] == 0)
+            $caminho = "./ADMtelaInicial.php";
+
+          echo "<script>alert('Login efetuado com sucesso'); location.href = '$caminho';</script>";
+        } 
+        else
           $erro[] = "Senha incorreta";
-        }
-      } else {
+      } 
+      else
         $erro[] = "Este CPF não pertence a nenhum usuário.";
-      }
+      
     $stmt->close(); //fechar declaração
     }
   }

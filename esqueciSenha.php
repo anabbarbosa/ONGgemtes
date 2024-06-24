@@ -11,7 +11,7 @@
     if (!is_numeric($cpf) || strlen($cpf) != 11) {
       $erro[] = "CPF inválido.";
     } else {
-    $stmt = $mysqli->prepare("SELECT codigo, ID FROM terapeuta WHERE cpf = '$cpf'"); // Preparar a consulta
+    $stmt = $mysqli->prepare("SELECT codigo, id_terapeuta FROM terapeuta WHERE CPF = '$cpf'"); // Preparar a consulta
     if ($stmt === false) {
     die("Erro na preparação: " . $mysqli->error);
     }
@@ -24,7 +24,7 @@
         $resultado = $row['codigo'];
 
       if($codigo == $resultado){
-        $_SESSION['ID'] = $row['ID']; //toda a vez que vamos verificar se o usuário está logado, utilizar o ID
+        $_SESSION['ID'] = $row['id_terapeuta']; //toda a vez que vamos verificar se o usuário está logado, utilizar o ID
         echo "<script>location.href = 'trocarSenha.php';</script>";
       }else {
         $erro [] = "Código inválido.";
