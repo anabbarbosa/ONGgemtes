@@ -20,11 +20,11 @@
 <body class="FundoCinza">
 
 <?php 
-  if(count($erro) > 0){
-    foreach($erro as $msg){
-      echo '<div class="alert alert-light position-absolute bottom-0 start-50 translate-middle-x" role="alert">' . $msg . "</div>";
-    }
-  }
+  // if(count($erro) > 0){
+  //   foreach($erro as $msg){
+  //     echo '<div class="alert alert-light position-absolute bottom-0 start-50 translate-middle-x" role="alert">' . $msg . "</div>";
+  //   }
+  // }
 ?>
   
 <header class="py-3 mb-3 border-bottom headerTelaInicial">

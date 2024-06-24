@@ -67,16 +67,17 @@ $mysqli->close();
 
   <header class="py-3 mb-3 border-bottom headerTelaInicial">
   <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr">
-    <div class="dropdown">
-      <a href="#" class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        <img class="bi me-2" height="32" src="./Imagens/logoGemtes.png">
-      </a>
-      <ul class="dropdown-menu text-small shadow">
-        <li><a class="dropdown-item" href="./ADMtelaInicial.php">Home</a></li>
-        <li><a class="dropdown-item" href="./ADMsenhas.php">Recuperar Senha</a></li>
-        <li><a class="dropdown-item" href="./addUsers.php">Cadastrar Usuário</a></li>
-        <li><a class="dropdown-item" href="./deleteUsers.php">Excluir Usuário</a></li>
-
+      <div class="dropdown">
+          <a href="./ADMtelaInicial.php" class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img class="bi me-2" height="32" src="./Imagens/logoGemtes.png">
+          </a>
+          <ul class="dropdown-menu text-small shadow">
+            <li><a class="dropdown-item" href="./ADMtelaInicial.php">Home</a></li>
+            <li><a class="dropdown-item" href="./ADMsenhas.php">Recuperar Senha</a></li>
+            <li><a class="dropdown-item" href="./addUsers.php">Cadastrar Usuário</a></li>
+            <li><a class="dropdown-item" href="./deleteUsers.php">Excluir Usuário</a></li>
+          </ul>
+      </div>
     <div class="d-flex align-items-center">
       <form class="w-100 me-3" role="search">
         <input type="search" class="form-control bordaAzulGemtes" placeholder="Procurar usuário..." aria-label="Search">
