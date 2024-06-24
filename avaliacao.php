@@ -48,7 +48,7 @@
             </svg>
           </a>
           <ul class="dropdown-menu text-small shadow">
-            <li><a class="dropdown-item" href="./perfilUsuario.html">Sobre</a></li>
+            <li><a class="dropdown-item" href="./perfilUsuario.php">Sobre</a></li>
             <li>
               <hr class="dropdown-divider">
             </li>

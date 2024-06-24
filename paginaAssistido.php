@@ -180,7 +180,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
           </a>
           <ul class="dropdown-menu text-small shadow">
             <li>
-              <a class="dropdown-item" href="./perfilUsuario.html">Sobre</a>
+              <a class="dropdown-item" href="./perfilUsuario.php">Sobre</a>
             </li>
             <li>
               <hr class="dropdown-divider" />
