@@ -63,7 +63,6 @@ $mysqli->close();
   }
 ?>
 
-  <div id="toast">Conteúdo copiado!</div>
 
   <header class="py-3 mb-3 border-bottom headerTelaInicial">
   <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr">
@@ -138,7 +137,7 @@ $mysqli->close();
     </div>
   </div>
 
-  <script src="copiar.js"></script>
+  <script src="./copiar.js"></script>
 </body>
 </html>
 
