@@ -1,37 +1,136 @@
 <?php
-include("protect.php");
-protect();
+  include("protect.php");
+  protect();
+  include("conexao.php");
 
-$conexao = mysqli_connect("localhost", "root", "", "ong");
-if (!$conexao) {die("Conexão falhou: " . mysqli_connect_error());} 
-$id = isset($_GET['id']) ? intval($_GET['id']) : 0; if ($id <= 0) { echo "ID inválido!"; exit;}
+//para pegar os dados de duas tabela N para N fazemos um join, 
+//relacionando os ids com a tabela intermediaria acompanha
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['update'])) {
-        $Nome_Completo = mysqli_real_escape_string($conexao, $_POST['Nome_Completo']);
-        $Data_Nascimento = mysqli_real_escape_string($conexao, $_POST['Data_Nascimento']);
-        $Idade_Cog = mysqli_real_escape_string($conexao, $_POST['Idade_Cog']);
-        $Encaminhamento = mysqli_real_escape_string($conexao, $_POST['Encaminhamento']);
-        $Nome_Responsavel = mysqli_real_escape_string($conexao, $_POST['Nome_Responsavel']);
-        $Telefone = mysqli_real_escape_string($conexao, $_POST['Telefone']);
-        $Grau_Parentesco = mysqli_real_escape_string($conexao, $_POST['Grau_Parentesco']);
-        $CPF = mysqli_real_escape_string($conexao, $_POST['CPF']);
+$id_assistido = isset($_GET['id']) ? intval($_GET['id']) : 0; //pega o id referente ao assistido selecionado para editar
+  
+if ($id_assistido <= 0) 
+{
+  echo "ID inválido!"; 
+  exit;
+}
 
-        $update_sql = "UPDATE assistido SET Nome_Completo='$Nome_Completo', Data_Nascimento='$Data_Nascimento', Idade_Cog='$Idade_Cog', 
-            Encaminhamento='$Encaminhamento', Nome_Responsavel='$Nome_Responsavel', Telefone='$Telefone', Grau_Parentesco='$Grau_Parentesco', CPF='$CPF' 
-            WHERE id=$id";
-        if (mysqli_query($conexao, $update_sql)) { echo "Registro atualizado com sucesso!";} else {echo "Erro ao atualizar o registro: " . mysqli_error($conexao);}
-        } elseif (isset($_POST['delete'])) {
-        $delete_sql = "DELETE FROM assistido WHERE id=$id";
-        if (mysqli_query($conexao, $delete_sql)) {echo "Registro removido com sucesso!"; header("Location: assistidos.php"); exit;
-        } else { echo "Erro ao remover o registro: " . mysqli_error($conexao); }
+$consulta = "SELECT a.*, r.*
+FROM assistido a
+JOIN acompanha ac ON a.id_assistido = ac.id_assistido  
+JOIN responsavel r ON ac.CPF = r.CPF                  
+WHERE a.id_assistido = $id_assistido;   
+";
+
+$stmt = $mysqli->prepare($consulta);
+
+if ($stmt === false) 
+  die("Erro na preparação: " . $mysqli->error);
+
+$stmt->execute();
+$result = $stmt->get_result(); 
+
+if ($result->num_rows > 0)
+  $linha = $result->fetch_assoc();
+else
+{
+  echo "Nenhum resultado encontrado.";
+  exit;
+}
+
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST")
+{
+  $CPF = mysqli_real_escape_string($mysqli, $_POST['CPF']);
+
+  if(isset($_POST['update']))
+  {
+    $Nome_Completo = mysqli_real_escape_string($mysqli, $_POST['Nome_Completo']);
+    $Data_Nascimento = mysqli_real_escape_string($mysqli, $_POST['Data_Nascimento']);
+    $Idade_Cog = mysqli_real_escape_string($mysqli, $_POST['Idade_Cog']);
+    $Encaminhamento = mysqli_real_escape_string($mysqli, $_POST['Encaminhamento']);
+    $Nome_Responsavel = mysqli_real_escape_string($mysqli, $_POST['Nome_Responsavel']);
+    $Telefone = mysqli_real_escape_string($mysqli, $_POST['Telefone']);
+    $Grau_Parentesco = mysqli_real_escape_string($mysqli, $_POST['Grau_Parentesco']);
+  
+    //Para realizar duas inserções de uma vez, criamos uma transaction
+    $mysqli->begin_transaction();
+  
+    try 
+    {
+      //armazenamos a primeira variável de transaction aqui
+      $stmt1 = $mysqli->prepare("UPDATE assistido SET Nome_Completo=?, Idade_Cog=?, Data_Nascimento=?, Encaminhamento=? 
+        WHERE id_assistido=?");
+      $stmt1->bind_param("sissi", $Nome_Completo, $Idade_Cog, $Data_Nascimento, $Encaminhamento, $id_assistido);
+      $stmt1->execute();
+  
+      //aqui a segunda
+      $stmt2 = $mysqli->prepare("UPDATE responsavel SET Nome_Responsavel=?, Telefone=?, Grau_Parentesco=?, CPF=? 
+        WHERE CPF=?");
+      $stmt2->bind_param("sssss", $Nome_Responsavel, $Telefone, $Grau_Parentesco, $CPF, $CPF);
+      $stmt2->execute();
+      
+      //aqui a terceira 
+      $stmt3 = $mysqli->prepare("UPDATE acompanha SET CPF=?, id_assistido=? WHERE CPF=? && id_assistido=?");
+      $stmt3->bind_param("sisi", $CPF, $id_assistido, $CPF, $id_assistido);
+      $stmt3->execute();
+  
+      //commita
+      if ($mysqli->commit()) 
+        echo "Dados atualizados com sucesso!";
+      else
+        echo "Erro ao atualizar o registro: " . mysqli_error($conexao);
+  
+    } 
+    catch (Exception $e) 
+    {
+      //caso de errado, realizamos um rollback para não inserir coisas pela metade
+      $mysqli->rollback();
+      echo "Erro ao atualizar dados: " . $e->getMessage();
     }
   }
-  $sql = "SELECT * FROM assistido WHERE id=$id";
-  $tabela = mysqli_query($conexao, $sql);
-  $linha = mysqli_fetch_array($tabela);
-  if (!$linha) {  echo "Item não encontrado!"; exit;
+  else if (isset($_POST['delete']))
+  {
+
+    $mysqli->begin_transaction();
+
+    $delete_sql1 = "DELETE FROM acompanha WHERE id_assistido = $id_assistido";
+    $delete_sql2 = "DELETE FROM assistido WHERE id_assistido = $id_assistido";
+    $delete_sql3 = "DELETE FROM responsavel WHERE CPF = $CPF";
+
+    try 
+    {
+      //armazenamos a primeira variável de transaction aqui
+      $stmt1 = $mysqli->prepare($delete_sql1);
+      $stmt1->execute();
+  
+      //aqui a segunda
+      $stmt2 = $mysqli->prepare($delete_sql2);
+      $stmt2->execute();
+      
+      //aqui a terceira 
+      $stmt3 = $mysqli->prepare($delete_sql3);
+      $stmt3->execute();
+  
+      //commita
+      if ($mysqli->commit()) 
+      echo "Registro removido com sucesso!"; 
+      else
+        echo "Erro ao atualizar o registro: " . mysqli_error($conexao);
+  
+    } 
+    catch (Exception $e) 
+    {
+      //caso de errado, realizamos um rollback para não inserir coisas pela metade
+      $mysqli->rollback();
+      echo "Erro ao atualizar dados: " . $e->getMessage();
+    }  
   }
+
+  header("Location: assistidos.php"); 
+  exit;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -60,10 +159,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <hr class="dropdown-divider" />
           </li>
           <li>
-            <a class="dropdown-item" href="./avaliacao.html">Avaliação</a>
+            <a class="dropdown-item" href="./avaliacao.php">Avaliação</a>
           </li>
           <li>
-            <a class="dropdown-item" href="./consultas.html">Consultas</a>
+            <a class="dropdown-item" href="./consultas.php">Consultas</a>
           </li>
         </ul>
       </div>
@@ -95,7 +194,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   <div class="container">
     <form id="assistido-form" method="POST" action="">
-      <input type="hidden" name="id" value="<?php echo $linha["id"]; ?>">
+      <input type="hidden" name="id" value="<?php echo $linha["id_assistido"]; ?>">
       <fieldset>
         <h3>Informações do Assistido</h3>
         <div class="row g-3">
@@ -167,3 +266,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </script>
 </body>
 </html>
+<?php
+  $mysqli->close();
+?>

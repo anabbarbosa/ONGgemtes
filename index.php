@@ -29,7 +29,7 @@ include("conexao.php");
     if (!is_numeric($cpf) || strlen($cpf) != 11) {
         $erro[] = "CPF inválido.";
     } else {
-      $stmt = $mysqli->prepare("SELECT senha, ID FROM terapeuta WHERE cpf = '$cpf'"); // Preparar a consulta
+      $stmt = $mysqli->prepare("SELECT senha, id_terapeuta FROM terapeuta WHERE cpf = '$cpf'"); // Preparar a consulta
       if ($stmt === false) {
           die("Erro na preparação: " . $mysqli->error);
       }
@@ -40,7 +40,7 @@ include("conexao.php");
       if ($result->num_rows > 0) { 
         $row = $result->fetch_assoc(); //obter os dados do usuario
         if(password_verify($senha, $row['senha'])){
-          $_SESSION['ID'] = $row['ID']; //toda a vez que vamos verificar se o usuário está logado, utilizar o ID
+          $_SESSION['ID'] = $row['id_terapeuta']; //toda a vez que vamos verificar se o usuário está logado, utilizar o ID
           echo "<script>alert('Login efetuado com sucesso'); location.href = './telaInicial.php';</script>";
         } else{
           $erro[] = "Senha incorreta";

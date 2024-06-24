@@ -1,12 +1,18 @@
 <?php
   include("protect.php");
   protect();
+  include("conexao.php");
 
-  $conexao = mysqli_connect("localhost", "root", "", "ong");
-  if (!$conexao) {
-    die("Conexão falhou: " . mysqli_connect_error());
-}
-  $cadastro_do_assistido = mysqli_query($conexao, "SELECT * FROM assistido");
+  $stmt = $mysqli->prepare("SELECT * FROM assistido"); // Preparar a consulta
+
+  if ($stmt === false) {
+      die("Erro na preparação: " . $mysqli->error);
+  }
+
+  $stmt->execute(); //executar consulta
+
+  $cadastro_do_assistido = $stmt->get_result(); //obter resultado
+
 ?>
 
 <!DOCTYPE html>
@@ -34,8 +40,8 @@
           <li><a class="dropdown-item" href="./assistidos.php">Assistidos</a></li>
           <li><a class="dropdown-item" href="./cadastrarAssistido.php">Cadastrar Assistido</a></li>
           <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="./avaliacao.html">Avaliação</a></li>
-          <li><a class="dropdown-item" href="./consultas.html">Consultas</a></li>
+          <li><a class="dropdown-item" href="./avaliacao.php">Avaliação</a></li>
+          <li><a class="dropdown-item" href="./consultas.php">Consultas</a></li>
         </ul>
       </div>
 
@@ -86,11 +92,11 @@
                   <ol>
                     <li>Nome: <?php echo $linha["Nome_Completo"]; ?></li>
                     <li>Idade: <?php $data_nascimento = DateTime::createFromFormat('Y-m-d', $linha["Data_Nascimento"]); if ($data_nascimento === false) {echo "Data de Nascimento inválida."; exit;} $dataAtual = new DateTime;  $intervalo = $dataAtual->diff($data_nascimento); $idade = $intervalo->y; echo $idade;?></li>
-                    <li>ID: <?php echo $linha["id"]; ?> </li>
+                    <li>ID: <?php echo $linha["id_assistido"]; ?> </li>
                   </ol>
                 </p>
                 <div class="text-center">
-                  <a href="./paginaAssistido.php?id=<?php echo $linha["id"]; ?>" class="btn btn-primary stretched-link azulGemtes bordaAzulGemtes">Ver Mais</a>
+                  <a href="./paginaAssistido.php?id=<?php echo $linha["id_assistido"]; ?>" class="btn btn-primary stretched-link azulGemtes bordaAzulGemtes">Ver Mais</a>
                 </div>
               </div>
             </div>
@@ -106,6 +112,7 @@
     </div>
 </body>
 </html>
+
 <?php
-    mysqli_close($conexao);
+  $mysqli->close();
 ?>

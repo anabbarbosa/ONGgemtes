@@ -1,41 +1,64 @@
 <?php
   include("protect.php");
   protect();
-  
-  // Conexão com o banco de dados
-  $conexao = mysqli_connect("localhost", "root", "", "assistido");
-  if (!$conexao) {
-    die("Falha na conexão: " . mysqli_connect_error());
-  }
+  include("conexao.php");
 
   //a requisição é do tipo POST
-  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Sanitiza e valida os dados do formulário
-    $Nome_Completo = mysqli_real_escape_string($conexao, $_POST['Nome_Completo']);
-    $Idade_Cog = mysqli_real_escape_string($conexao, $_POST['Idade_Cog']);
-    $Data_Nascimento = mysqli_real_escape_string($conexao, $_POST['Data_Nascimento']);
-    $Encaminhamento = mysqli_real_escape_string($conexao, $_POST['Encaminhamento']);
-    $Nome_Responsavel = mysqli_real_escape_string($conexao, $_POST['Nome_Responsavel']);
-    $CPF = mysqli_real_escape_string($conexao, $_POST['CPF']);
-    $Telefone = mysqli_real_escape_string($conexao, $_POST['Telefone']);
-    $Grau_Parentesco = mysqli_real_escape_string($conexao, $_POST['Grau_Parentesco']);
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+  {
+    // Valida os dados do formulário
+    $Nome_Completo = mysqli_real_escape_string($mysqli, $_POST['Nome_Completo']);
+    $Idade_Cog = mysqli_real_escape_string($mysqli, $_POST['Idade_Cog']);
+    $Data_Nascimento = mysqli_real_escape_string($mysqli, $_POST['Data_Nascimento']);
+    $Encaminhamento = mysqli_real_escape_string($mysqli, $_POST['Encaminhamento']);
+    $Nome_Responsavel = mysqli_real_escape_string($mysqli, $_POST['Nome_Responsavel']);
+    $CPF = mysqli_real_escape_string($mysqli, $_POST['CPF']);
+    $Telefone = mysqli_real_escape_string($mysqli, $_POST['Telefone']);
+    $Grau_Parentesco = mysqli_real_escape_string($mysqli, $_POST['Grau_Parentesco']);
 
     // Verifica se os campos obrigatórios estão preenchidos
-    if (!empty($Nome_Completo) && !empty($Data_Nascimento) && !empty($Nome_Responsavel) && !empty($CPF)) {
-      // Query de inserção
-      $sql = "INSERT INTO cadastro_do_assistido (Nome_Completo, Idade_Cog, Data_Nascimento, Encaminhamento, Nome_Responsavel, CPF, Telefone, Grau_Parentesco)
-              VALUES ('$Nome_Completo', '$Idade_Cog', '$Data_Nascimento', '$Encaminhamento', '$Nome_Responsavel', '$CPF', '$Telefone', '$Grau_Parentesco')";
-
-      // Executa a query
-      if (mysqli_query($conexao, $sql)) {
-        echo "Dados inseridos com sucesso!";
-      } else {
-        echo "Erro: " . mysqli_error($conexao);
-      }
-    } else {
+    if (empty($Nome_Completo) && empty($Data_Nascimento) && empty($Nome_Responsavel) && empty($CPF)) 
+    {
       echo "Por favor, preencha todos os campos obrigatórios.";
+      exit;
     }
-  }
+      
+    //Para realizar duas inserções de uma vez, criamos uma transaction
+    $mysqli->begin_transaction();
+
+    try 
+    {
+      //armazenamos a primeira variável de transaction aqui
+      $stmt1 = $mysqli->prepare("INSERT INTO assistido (Nome_Completo, Idade_Cog, Data_Nascimento, Encaminhamento) VALUES (?, ?, ?, ?)");
+      $stmt1->bind_param("siss", $Nome_Completo, $Idade_Cog, $Data_Nascimento, $Encaminhamento);
+      $stmt1->execute();
+
+      //aqui pegamos o ultimo id inserido, já que o assistido está com auto_increment no id
+      $id_assistido = $mysqli->insert_id;
+
+      //aqui a segunda
+      $stmt2 = $mysqli->prepare("INSERT INTO responsavel (Nome_Responsavel, CPF, Telefone, Grau_Parentesco) VALUES (?, ?, ?, ?)");
+      $stmt2->bind_param("ssss", $Nome_Responsavel, $CPF, $Telefone, $Grau_Parentesco);
+      $stmt2->execute();
+
+      //aqui a terceira 
+      $stmt3 = $mysqli->prepare("INSERT INTO acompanha (CPF, id_assistido) VALUES (?, ?)");
+      $stmt3->bind_param("si", $CPF, $id_assistido);
+      $stmt3->execute();
+
+      //commita
+      $mysqli->commit();
+
+      echo "Dados inseridos com sucesso!";
+    } 
+    catch (Exception $e) 
+    {
+      //caso de errado, realizamos um rollback para não inserir coisas pela metade
+      $mysqli->rollback();
+      echo "Erro ao inserir dados: " . $e->getMessage();
+    }
+  } 
+    
 ?>
 
 <!DOCTYPE html>
@@ -86,10 +109,10 @@
             </li>
             <li><hr class="dropdown-divider" /></li>
             <li>
-              <a class="dropdown-item" href="./avaliacao.html">Avaliação</a>
+              <a class="dropdown-item" href="./avaliacao.php">Avaliação</a>
             </li>
             <li>
-              <a class="dropdown-item" href="./consultas.html">Consultas</a>
+              <a class="dropdown-item" href="./consultas.php">Consultas</a>
             </li>
           </ul>
         </div>
@@ -187,6 +210,5 @@
   </body>
 </html>
 <?php
-
-mysqli_close($conexao);
+  $mysqli->close();
 ?>
