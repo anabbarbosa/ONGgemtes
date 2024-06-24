@@ -57,7 +57,7 @@
             </svg>
           </a>
           <ul class="dropdown-menu text-small shadow">
-            <li><a class="dropdown-item" href="./perfilUsuario.html">Sobre</a></li>
+            <li><a class="dropdown-item" href="./perfilUsuario.php">Sobre</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Sair</a></li>
           </ul>
@@ -69,7 +69,7 @@
       <img class="d-block mx-auto" src="./Imagens/fotokid.png" alt="" height="155">
       <h1 class="display-5 fw-bold text-body-emphasis">Seus assistidos</h1>
       <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">A Isa vai escrever algo daora aqui depois</p>
+        <p class="lead mb-4">Cadastre um novo assistido ou role para baixo para ver os já existentes.</p>
       </div>
       <button class="btn btn-primary d-inline-flex align-items-center azulGemtes bordaAzulGemtes" type="button">
         <a href="./cadastrarAssistido.php" class="text-white">Cadastrar assistido</a>
