@@ -17,21 +17,21 @@
       $erro[] = "CPF inválido.";
     } else {
 
-    $stmt = $mysqli->prepare("SELECT * FROM `usuarios` WHERE CPF='$cpf'"); // Preparar a consulta
+    $stmt = $mysqli->prepare("SELECT * FROM `terapeuta` WHERE CPF='$cpf'"); // Preparar a consulta
 
-    if ($stmt === false) {
+    if ($stmt === false)
         die("Erro na preparação: " . $mysqli->error);
-    }
 
     $stmt->execute(); //executar consulta
     $result = $stmt->get_result(); //obter resultado
 
-    if ($result->num_rows > 0) { 
+    if ($result->num_rows > 0) 
       $erro[] = "Este CPF já está cadastrado.";
-    }else {
+    else
+    {
       $senhaProvisoria = password_hash($codigo, PASSWORD_DEFAULT);
-      $stmt = $mysqli->prepare("INSERT INTO `usuarios` (`ID`, `CPF`, `senha`, `codigo`) VALUES
-('', '$CPF', '$senhaProvisoria', '$codigo')"); // Preparar a consulta
+      $stmt = $mysqli->prepare("INSERT INTO `terapeuta` (`ID`, `CPF`, `senha`, `codigo`) VALUES
+      ('', '$CPF', '$senhaProvisoria', '$codigo')"); // Preparar a consulta
       if ($stmt === false) {
         die("Erro na preparação: " . $mysqli->error);
       }
@@ -65,7 +65,7 @@
   //     echo '<div class="alert alert-light position-absolute bottom-0 start-50 translate-middle-x" role="alert">' . $msg . "</div>";
   //   }
   // }
-?>
+  ?>
 
   <?php
     if(count($sucesso) > 0){

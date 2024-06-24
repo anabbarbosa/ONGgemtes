@@ -11,7 +11,7 @@
     if (!is_numeric($cpf) || strlen($cpf) != 11) {
       $erro[] = "CPF inválido.";
     } else {
-    $stmt = $mysqli->prepare("SELECT codigo, ID FROM usuarios WHERE cpf = '$cpf'"); // Preparar a consulta
+    $stmt = $mysqli->prepare("SELECT codigo, ID FROM terapeuta WHERE cpf = '$cpf'"); // Preparar a consulta
     if ($stmt === false) {
     die("Erro na preparação: " . $mysqli->error);
     }

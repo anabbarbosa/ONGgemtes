@@ -3,7 +3,7 @@
 <?php
 
  $hostname = "localhost";
- $bancodedados = "ONG";
+ $bancodedados = "ong"; 
  $usuario = "root";
  $senha = "";
 
@@ -11,6 +11,7 @@
  if ($mysqli->connect_errno){
    echo "Falha ao conectar: (" . $mysql->connect_errno . ") " . $mysql->connect_error;
  }
-  ?>
+
+?>
 
   
