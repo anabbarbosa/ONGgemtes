@@ -1,4 +1,4 @@
- function copiarConteudo(elementId) {
+function copiarConteudo(elementId) {
     
     var card = document.getElementById(elementId); // Obter o elemento card pelo ID
     var tempElement = document.createElement('textarea'); // Criar um elemento de texto temporário
@@ -11,4 +11,4 @@
     var x = document.getElementById("toast");
     x.className = "show";
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-} 
+}
