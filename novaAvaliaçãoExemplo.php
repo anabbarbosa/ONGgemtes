@@ -1,6 +1,16 @@
 <?php
-  include("protect.php");
-  protect();
+include("protect.php");
+protect();
+include("conexao.php");
+
+$consulta = "SELECT * FROM questao";
+
+$stmt = $mysqli->prepare($consulta);
+if ($stmt === false) 
+  die("Erro na preparação: " . $mysqli->error);
+
+$stmt->execute();
+$result = $stmt->get_result(); 
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +23,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css">
-  <title>Avaliação</title>
+  <title> Nova Avaliação</title>
 </head>
 
 <body class="FundoCinza">
@@ -23,6 +33,7 @@
         <a href="#" class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
           <img class="bi me-2" height="32" src="./Imagens/logoGemtes.png">
 
+        
         </a>
         <ul class="dropdown-menu text-small shadow">
           <li><a class="dropdown-item" href="./telaInicial.php">Home</a></li>
@@ -47,6 +58,7 @@
               <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
             </svg>
           </a>
+          
           <ul class="dropdown-menu text-small shadow">
             <li><a class="dropdown-item" href="./perfilUsuario.php">Sobre</a></li>
             <li>
@@ -60,62 +72,36 @@
   </header>
 
   <div class="container">
-    <form class="row g-3">
-      <div class=" col-12">
-        <h3>Identificação do assistido</h3>
-      </div>
-      <div class="col-md-6">
-        <label for="inputnome" class="form-label"> Nome Completo</label>
-        <input type="text" class="form-control" id="inputnome">
-      </div>
-      <div class="col-md-6">
-        <label for="inputPassword4" class="form-label">ID</label>
-        <input type="number" class="form-control" id="inputPassword4">
-      </div>
-      <div class="col-12">
-        <button type="submit" class="btn btn-primary azulGemtes bordaAzulGemtes">Procurar</button>
-      </div>
+    <section class="capacidade">
+      <form class="row g-3">
+        <div class="col-12">
+          <h2 class="textoAzulGemtes"> Língua Portuguesa</h2>
+          <h5 class="textoAzulGemtes">A criança foi capaz de:</h5>
+        </div>
+        <?php
+        $counter = 0;
+        while ($linha = mysqli_fetch_array($result)) {
+      ?>
+        
+        <div class="col-md-6">
+          <label for="inputState" class="form-label"><?php echo $linha['enunciado'];?></label>
+          <input type="text" class="form-control" placeholder="Resposta">            
+        </div>
+    </section>
+    <?php
+          $counter++;
+        }
+      ?>
+    <div class="col-12 py-3">
+    <button id="printButton" class="btn btn-primary azulGemtes bordaAzulGemtes">Salvar como PDF</button>
+        <script>
+            document.getElementById("printButton").addEventListener("click", function() {
+                window.print();
+            });
+        </script>
+    </div>
     </form>
-
-    <table class="table my-3">
-      <thead>
-        <tr>
-          <th scope="col">Tipo</th>
-          <th scope="col">Data</th>
-          <th scope="col">Nota</th>
-          <th scope="col">Relatório</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>12.04</td>
-          <td>PS</td>
-          <td> <a href="" class="textoAzulGemtes"> Gerar Relatório</a></td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>12.05</td>
-          <td>PS</td>
-          <td> <a href="" class="textoAzulGemtes"> Gerar Relatório</a></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>12.06</td>
-          <td>PS</td>
-          <td> <a href="" class="textoAzulGemtes"> Gerar Relatório</a></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary azulGemtes bordaAzulGemtes"> <a href="./novaAvaliação.php" style="color:white;"> Registrar nova avaliação</a></button>
-    </div>
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary azulGemtes bordaAzulGemtes"> <a href="./novaAvaliaçãoExemplo.php" style="color:white;"> Nova avaliação exemplo</a></button>
-    </div>
   </div>
-
 
 </body>
 
